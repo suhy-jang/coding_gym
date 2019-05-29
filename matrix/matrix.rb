@@ -1,7 +1,7 @@
 class Matrix
   attr_reader :rows, :columns
 
-  def initialize(str,rows=nil,columns=nil)
+  def initialize(str)
     @rows=nil
     @columns=nil
     SaveRC(str)
