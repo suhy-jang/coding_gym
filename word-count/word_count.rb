@@ -8,6 +8,8 @@ class Phrase
     @words_count
   end
 
+  private
+  
   def generate
     hash = Hash.new
     @words.each do |p|
