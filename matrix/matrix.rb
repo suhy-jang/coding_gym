@@ -1,39 +1,23 @@
 class Matrix
-  attr_reader :rows, :columns
-
   def initialize(str)
-    @rows=nil
-    @columns=nil
-    SaveRC(str)
+    @str_matrix = str
   end
 
-  def SaveRC(str)
-    str=str.split("\n")
-    str.each_with_index do |p,idx|
-      p=p.split(" ")
-      if @columns.nil? && @rows.nil?
-        InitRC(str.length, p.length)
-      end
-      SetRC(p,idx)
-    end
+  def rows
+    @rows ||= transform
   end
 
-  def SetRC(arr,r)
-    arr.each_with_index do |curr, c|
-      curr=curr.to_i
-      @rows[r][c] = curr
-      @columns[c][r] = curr
-    end
+  def columns
+    @columns ||= rows.transpose
   end
 
-  def InitRC(r, c)
-    @columns=[]
-    0.upto(c-1) do
-      @columns << [""]*r
-    end
-    @rows=[]
-    0.upto(r-1) do
-      @rows << [""]*c
-    end
+  private
+
+  def transform
+    @str_matrix.lines.map { |line| line.split.map(&:to_i) }
   end
 end
+
+#matrix = Matrix.new("9 8 7\n19 18 17")
+#p matrix.rows[0], matrix.columns[0]
+#p matrix.rows[1], matrix.columns[1]
