@@ -12,7 +12,7 @@ class Phrase
   private
 
   def generate
-    @words.each_with_object({}){|k,hash| hash[k] ? (hash[k] += 1) : (hash[k]=1)}
+    @words.each_with_object(Hash.new(0)){|w,hash| (hash[w] += 1)}
   end
 
 end
