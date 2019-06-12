@@ -10,7 +10,7 @@ module Grains
     end
 
     def square(n)
-      raise ArgumentError if out_range(n)
+      raise ArgumentError if out_range?(n)
 
       set_grains[n - 1]
     end
@@ -29,7 +29,7 @@ module Grains
       set_grains.inject(0) { |acc, e| acc += e }
     end
 
-    def out_range(n)
+    def out_range?(n)
       (n < 1) || (n > 64)
     end
   end
