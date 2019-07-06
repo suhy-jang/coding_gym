@@ -1,5 +1,5 @@
 class Scrabble
-    attr_reader :script
+    attr_reader :word
 
   MATCHES = {
     "A" => 1, "E" => 1, "I" => 1, "O" => 1, "U" => 1, "L" => 1,
@@ -13,21 +13,25 @@ class Scrabble
   }
   MATCHES.default = 0
 
-  def initialize(script)
-    @script = script ||= ''
+  def initialize(word)
+    @word = CustomString.new(word || '')
   end
 
-  def self.score(in_script)
-    new(in_script).score
+  def self.score(in_word)
+    new(in_word).score
   end
 
   def score
-    @score ||= letters.sum { |letter| MATCHES[letter.upcase] }
+    @score ||= word.each_tile.sum(&MATCHES)
+  end
+end
+
+class CustomString < String
+  def each_tile
+    remove_whitespaces.upcase.each_char
   end
 
-  private
-
-  def letters
-    @letters ||= script.split('')
+  def remove_whitespaces
+    delete(" \t\r\n")
   end
 end
