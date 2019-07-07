@@ -14,7 +14,7 @@ class Scrabble
   MATCHES.default = 0
 
   def initialize(word)
-    @word = CustomString.new(word || '')
+    @word = word || ''
   end
 
   def self.score(in_word)
@@ -22,16 +22,10 @@ class Scrabble
   end
 
   def score
-    @score ||= word.each_tile.sum(&MATCHES)
+    @score ||= each_tile.sum(&MATCHES)
   end
-end
 
-class CustomString < String
   def each_tile
-    remove_whitespaces.upcase.each_char
-  end
-
-  def remove_whitespaces
-    delete(" \t\r\n")
+    word.upcase.each_char
   end
 end
