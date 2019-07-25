@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/marcs-cakewalk/problem
+
 def marcsCakewalk(calories)
     calories.sort!.reverse!
     calculate(calories)[:sum]
