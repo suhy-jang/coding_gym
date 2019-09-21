@@ -1,1 +1,3 @@
-# ruby_practice
+# coding practice
+- ruby
+- javascript
