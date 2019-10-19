@@ -3,19 +3,10 @@
 // convenience to get you started writing code faster.
 //
 
-const match = {
-  "black": 0,
-  "brown": 1,
-  "red": 2,
-  "orange": 3,
-  "yellow": 4,
-  "green": 5,
-  "blue": 6,
-  "violet": 7,
-  "grey": 8,
-  "white": 9,
-};
+const match = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"];
+
+const colorCode = color => match.indexOf(color);
 
 export const value = (c) => {
-  return match[c[0]]*10 + match[c[1]];
+  return colorCode(c[0])*10 + colorCode(c[1]);
 };
