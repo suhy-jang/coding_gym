@@ -7,6 +7,6 @@ const match = ["black", "brown", "red", "orange", "yellow", "green", "blue", "vi
 
 const colorCode = color => match.indexOf(color);
 
-export const value = (c) => {
-  return colorCode(c[0])*10 + colorCode(c[1]);
+export const value = ([c1, c2]) => {
+  return colorCode(c1)*10 + colorCode(c2);
 };
