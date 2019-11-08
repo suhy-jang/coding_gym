@@ -11,35 +11,6 @@ def border_check(arr, r, c)
   -1
 end
 
-# def border_check(content, r, c)
-#   arr = content[:coords]
-#   return arr[r][c][:id] if r-1 < 0 || c-1 < 0 || r+1 >= arr.length || c+1 >= arr[0].length
-#
-#   id = arr[r][c][:id]
-#   if (arr[r-1][c][:id] != id) ||
-#     (arr[r+1][c][:id] != id) ||
-#     (arr[r][c-1][:id] != id) ||
-#     (arr[r][c+1][:id] != id)
-#     return arr[r][c][:id]
-#   end
-#   -1
-# end
-
-# bool PointInPolygon(Point point, Polygon polygon) {
-#   vector<Point> points = polygon.getPoints();
-#   int i, j, nvert = points.size();
-#   bool c = false;
-#
-#   for(i = 0, j = nvert - 1; i < nvert; j = i++) {
-#     if( ( (points[i].y >= point.y ) != (points[j].y >= point.y) ) &&
-#         (point.x <= (points[j].x - points[i].x) * (point.y - points[i].y) / (points[j].y - points[i].y) + points[i].x)
-#       )
-#       c = !c;
-#   }
-#
-#   return c;
-# }
-
 def point_in_polygon(point, polygon)
   nvert = polygon.length
   i, j = 0, nvert - 1
@@ -86,14 +57,12 @@ def find_capital(id, content)
   avg = average(coords)
   border = borders.find{ |b| b == avg }
   middle_dot = [avg[0]+0.5, avg[1]+0.5]
-  # in_range = in_borders.find{ |temp| temp == avg }
   in_range = point_in_polygon(middle_dot, borders)
   return [avg[1], avg[0]] if !border && in_range
 
 
   results = closest(in_borders, avg)
   r = results.sort {|a,b| a[1] == b[1] ? a[0] <=> b[0] : a[1] <=> b[1]}.first
-  # print results, "\n "
   [r[1], r[0]]
 end
 
