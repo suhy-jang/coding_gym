@@ -1,0 +1,13 @@
+# hackathon_codeforce
+- 2019_mar_19_a: input(n,m) , n * 2(repeat 0 to num) * 3(repeat 0 to num) -> m , get the num of how many times repeat those
+- 2019_mar_19_b: input(array) an hour unit 1: rest 0: work, consider next day is connected with today, get the maximum rest hours
+- 2019_mar_19_c: input(array) difference between elements in array, validate wheather complete array is permutation or not
+- 2019_may_26_a: input(num,a,x,b,y) one from "a" to "x" with order of 1,2,3,..,num and repeat, one from "b" to "y" with order of num,...,3,2,1 and repeat, do they meet?
+- [2019_june_5_a](https://codeforces.com/contest/1175/problem/A): input(nquery, n, k) until n becoming 0, dividing into k or subtract 1, return result how many operation.
+- [2019_june_5_b](https://codeforces.com/contest/1175/problem/B): input(add, for n, end), if it is able to calculate return the result, otherwise speaks "OVERFLOW!!!"
+- [2019_june_16_a](https://codeforces.com/contest/1181/problem/A)
+- [2019_july_5_c](http://codeforces.com/contest/1189/problem/C)
+- [2019_aug_22_a](http://codeforces.com/contest/1207/problem/A)
+- [2019_aug_22_b](http://codeforces.com/contest/1207/problem/B)
+- [2019_sept_15_a](http://codeforces.com/contest/1215/problem/A)
+- [2019_sept_15_b](http://codeforces.com/contest/1215/problem/B)
