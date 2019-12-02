@@ -20,7 +20,6 @@ int Game23(int n, int m) {
 		f /= 3;
 		nCount++;
 	}
-	// f== 5 or 7 => -1
 	return (f == 1)? nCount : -1;
 }
 
@@ -28,11 +27,9 @@ int main()
 {
 	int n;
 	int m;
-	for (int i = 0; i < 10; i++) {
-		cin >> n;
-		cin >> m;
+	cin >> n;
+	cin >> m;
 
-		cout << Game23(n, m) << endl;
-	}
+	cout << Game23(n, m) << endl;
 	return 0;
 }

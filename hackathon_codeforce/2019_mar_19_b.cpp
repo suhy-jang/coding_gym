@@ -32,16 +32,14 @@ int MaxiRest(vector<int> vHours) {
 }
 int main()
 {
-	for (int i = 0; i < 10; i++) {	// remove: test
-		int n;
-		vector<int> vHours;
-		cin >> n;
-		while (n--) {
-			int rest;
-			cin >> rest;
-			vHours.push_back(rest);
-		}
-		cout << MaxiRest(vHours) << endl;
+	int n;
+	vector<int> vHours;
+	cin >> n;
+	while (n--) {
+		int rest;
+		cin >> rest;
+		vHours.push_back(rest);
 	}
+	cout << MaxiRest(vHours) << endl;
 	return 0;
 }
