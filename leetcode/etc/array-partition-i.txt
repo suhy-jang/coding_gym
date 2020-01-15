@@ -1,0 +1,57 @@
+/** O(nlogn), O(1), js, quick sort
+ * @param {number[]} nums
+ * @return {number}
+ */
+const arrayPairSum = (nums) => {
+    nums.sort((a, b) => a - b);
+    let sum = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        sum += nums[i];
+    }
+    return sum;
+};
+
+#  O(nlogn), O(1), rb
+# @param {Integer[]} nums
+# @return {Integer}
+def array_pair_sum(nums)
+    nums.sort!{ |a, b| a - b }
+    i = 0
+    sum = 0
+    while i < nums.size
+        sum += nums[i]
+        i += 2
+    end
+    sum
+end
+
+//  O(nlogn), O(1), cpp
+class Solution {
+public:
+    int arrayPairSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), less<int>());
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i += 2) {
+            sum += nums[i];
+        }
+        return sum;
+    }
+};
+
+//  O(n), O(n), cpp, counting sort
+class Solution {
+public:
+    int arrayPairSum(vector<int>& nums) {
+        vector<int> arr(20001, 0);
+        int lim = 10000;
+        for (int num : nums) {
+            arr[num + lim]++;
+        }
+        int r = 0, sum = 0;
+        for (int i = -10000; i <= 10000; i++) {
+            sum += (arr[i + lim] + 1 - r) / 2 * i;
+            r = (2 + arr[i + lim] - r) % 2;
+        }
+        return sum;
+    }
+};
