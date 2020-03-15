@@ -1,13 +1,13 @@
-function reverseHelper(head, prev) {
-    if (head.next) {
-        let next = head.next;
+function reverse(head) {
+    if (head == null) return null;
+
+    let prev = null;
+    while(head.next != null) {
+        const nextNode = head.next;
         head.next = prev;
-        return reverseHelper(next, head);
+        prev = head;
+        head = nextNode;
     }
     head.next = prev;
     return head;
-}
-
-function reverse(head) {
-    return reverseHelper(head, null);
 }
