@@ -1,1 +1,4 @@
-# Last Digit of a Large Fibonacci Number
+- Last Digit of a Large Fibonacci Number
+- Greatest Common Divisor
+  - by Euclidean algorithm
+  - commonly used cryptographic algorithms like RSA
