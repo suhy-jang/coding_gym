@@ -9,18 +9,18 @@ export class Clock {
   }
 
   private correction() {
-    while (this.minute < 0) {
-      this.hour--;
-      this.minute += 60;
+    if (this.minute < 0) {
+      this.hour -= Math.floor((-this.minute + 60) / 60);
+      this.minute = 60 + (this.minute % 60);
     }
-    while (this.minute >= 60) {
-      this.hour++;
-      this.minute -= 60;
+    if (this.minute >= 60) {
+      this.hour += Math.floor(this.minute / 60);
+      this.minute = this.minute % 60;
     }
-    while (this.hour < 0) {
-      this.hour += 24;
+    if (this.hour < 0) {
+      this.hour = 24 + (this.hour % 24);
     }
-    while (this.hour >= 24) {
+    if (this.hour >= 24) {
       this.hour = this.hour % 24;
     }
   }
